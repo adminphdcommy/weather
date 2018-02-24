@@ -14,23 +14,77 @@
 
 
 
-    <ion-content class="card-background-page">
+<ion-content class="{{bgImg}}" >
 
-        <ion-card>
-          <img *ngIf="weather['weather'][0]['main'] == 'Rain' " src="https://ak1.picdn.net/shutterstock/videos/11362301/thumb/1.jpg"/>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
+    
+      
+        <div class="card-title-black" *ngIf="todayWeather == 'Clouds' ">
+            {{weather['dt'] *1000 | date: 'dd'}} {{weather['dt'] *1000 | date: 'MMM'}} {{weather['dt'] *1000 | date:'yyyy'}} ({{weather['dt'] *1000 | date:'EE'}})
           
-        </ion-card>
+            <span style="font-size:0.5em;text-transform:capitalize;display:block;font-weight:normal">{{weatherDescription}}</span>
+        </div>
+        <p class="card-subtitle-black" *ngIf="todayWeather == 'Clouds' ">
+          <br>
+          Day Temperature: {{dayTemperature}}
+          <br>
+          Evening Temperature: {{eveTemperature}}
+          <br>
+          Night Temperature: {{nightTemperature}}
+          <br><br>
+          Humidity: {{Humidity}}
+          <br>
+          Pressure: {{Pressure}}
+          <br>
+          Wind Speed: {{Speed}}
+
+        </p>
+
+        
+        <div class="card-title" *ngIf="todayWeather == 'Rain' " >
+            {{weather['dt'] *1000 | date: 'dd'}} {{weather['dt'] *1000 | date: 'MMM'}} {{weather['dt'] *1000 | date:'yyyy'}} ({{weather['dt'] *1000 | date:'EE'}})
+          
+          <span style="font-size:0.5em;text-transform:capitalize;display:block;font-weight:normal">{{weatherDescription}}</span>
+        </div>
+        <p class="card-subtitle" *ngIf="todayWeather == 'Rain' ">
+            
+            <br>
+            Day Temperature: {{dayTemperature}}
+            <br>
+            Evening Temperature: {{eveTemperature}}
+            <br>
+            Night Temperature: {{nightTemperature}}
+            <br><br>
+            Humidity: {{Humidity}}
+            <br>
+            Pressure: {{Pressure}}
+            <br>
+            Wind Speed: {{Speed}}
+        </p>
+
       
-      
-      </ion-content>
+        
+        <div class="card-title" *ngIf="todayWeather == 'Clear' ">
+            {{weather['dt'] *1000 | date: 'dd'}} {{weather['dt'] *1000 | date: 'MMM'}} {{weather['dt'] *1000 | date:'yyyy'}} ({{weather['dt'] *1000 | date:'EE'}})
+          
+            <span style="font-size:0.8em;text-transform:capitalize;display:block;font-weight:normal">{{weatherDescription}}</span>
+        </div>
+        <p class="card-subtitle" *ngIf="todayWeather == 'Clear' ">
+            <br>
+            Day Temperature: {{dayTemperature}}
+            <br>
+            Evening Temperature: {{eveTemperature}}
+            <br>
+            Night Temperature: {{nightTemperature}}
+            <br><br>
+            Humidity: {{Humidity}}
+            <br>
+            Pressure: {{Pressure}}
+            <br>
+            Wind Speed: {{Speed}}
+        </p>
+  
+    
+  
+  
+  </ion-content>
 

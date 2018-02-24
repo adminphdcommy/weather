@@ -6,19 +6,61 @@ page-weather-details {
     
       .card-title {
         position: absolute;
-        top: 36%;
+        top: 15%;
         font-size: 2.0em;
         width: 100%;
         font-weight: bold;
         color: #fff;
+        text-align: center;
+        opacity: 1;
       }
     
       .card-subtitle {
         font-size: 1.0em;
         position: absolute;
-        top: 52%;
+        top: 30%;
         width: 100%;
         color: #fff;
+        text-align: center;
+        text-transform: capitalize;
+        opacity: 1;
+      }
+
+      .card-title-black {
+        position: absolute;
+        top: 15%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+      }
+    
+      .card-subtitle-black {
+        font-size: 1.0em;
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        color: black;
+        margin:5px;
+        text-transform: capitalize;
+        text-align: center;
+      }
+
+      .card-background-page-cloud{
+        background: url('https://jesscliftonphotography.files.wordpress.com/2014/01/fluffy-white-clouds.jpg');
+        background-size: cover;
+      }
+      .card-background-page-rain{
+        background: url('https://i.pinimg.com/originals/4d/a7/b1/4da7b1650d441c0c8e71186ebcb5246a.jpg');
+        background-size: cover;
+        background-color:black;
+        opacity: 0.9;
+
+      }
+      .card-background-page-clear{
+        background: url('https://s-media-cache-ak0.pinimg.com/originals/65/19/a2/6519a2cc0abd1ef74bfc72e90c848214.jpg');
+        background-size: cover;
       }
     
 

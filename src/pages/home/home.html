@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <img *ngIf="todayWeather == 'Clouds' " src="https://cdn.barnimages.com/wp-content/uploads/2015/11/2015-11-11-Igor-Trepeshchenok-Barnimages-12-1024x683.jpg" style="object-fit: cover"/>
+    <ion-card (click)="details(weather)">
+        <img *ngIf="todayWeather == 'Clouds' " src="https://jesscliftonphotography.files.wordpress.com/2014/01/fluffy-white-clouds.jpg" style="object-fit: cover"/>
         <div class="card-title-black" *ngIf="todayWeather == 'Clouds' ">Today Weather</div>
         <div class="card-subtitle-black" *ngIf="todayWeather == 'Clouds' ">{{weatherDescription}}</div>
 
@@ -15,7 +15,7 @@
         <div class="card-title" *ngIf="todayWeather == 'Rain' ">Today Weather</div>
         <div class="card-subtitle" *ngIf="todayWeather == 'Rain' ">{{weatherDescription}}</div>
 
-        <img *ngIf="todayWeather == 'Clear' " src="http://www.tokkoro.com/picsup/3095705-fence_forest_green_nature_outdoors_outside_summer_sunshine_sweden_tree_trees.jpg"/>
+        <img *ngIf="todayWeather == 'Clear' " src="https://s-media-cache-ak0.pinimg.com/originals/65/19/a2/6519a2cc0abd1ef74bfc72e90c848214.jpg"/>
         
         <div class="card-title" *ngIf="todayWeather == 'Clear' ">Today Weather</div>
         <div class="card-subtitle" *ngIf="todayWeather == 'Clear' ">{{weatherDescription}}</div>
@@ -23,5 +23,7 @@
         
     </ion-card>
   <h2>Your City : {{city}} </h2>
-  <div #map id="map"></div>
+  <img src="{{googleStreetView}}" style="height:50%;width:100%" > 
+  
+  <!-- <div #map id="map"></div> -->
 </ion-content>

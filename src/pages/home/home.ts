@@ -5,6 +5,8 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 
 import { LocationProvider } from '../../providers/location/location';
 import { HttpsProvider } from '../../providers/https/https';
+import { WeatherDetailsPage } from '../../pages/weather-details/weather-details';
+
 
 
 
@@ -26,8 +28,11 @@ export class HomePage {
   city
   lat
   long
+  weather
   todayWeather
   weatherDescription
+  googleStreetView
+
 
   ionViewDidLoad(){
     this.HttpsProvider.getWeather().then((data) => {
@@ -35,14 +40,31 @@ export class HomePage {
       console.log(data["list"])
       console.log(data["list"][0]["weather"][0]["icon"])
 
+      this.weather = data["list"][0]
       this.todayWeather = data["list"][0]["weather"][0]["main"]
       this.weatherDescription = data["list"][0]["weather"][0]["description"]
+      
+      
+      
+      
+      this.LocationProvider.getPosition().then((position) => {
+
+        this.lat = position[0]
+        this.long = position[1]
+
+        this.googleStreetView = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+this.lat+","+this.long+"&heading=151.78&pitch=-0.76&key=AIzaSyDi3oi6kwooMB9aIGUE6Bw1U7gN2HEbgLk"
+        console.log(this.lat)
+        console.log(this.googleStreetView)
+      })
+      
+      
 
 
     });
-    this.loadMap();
+    //this.loadMap();
   }
  
+  /*
   loadMap(){
     this.LocationProvider.getPosition().then((position) => {
 
@@ -82,5 +104,11 @@ export class HomePage {
 
  
   })
+}
+*/
+
+details(weather){
+  console.log(weather)
+  this.navCtrl.push(WeatherDetailsPage,{weather:weather})
 }
 }
