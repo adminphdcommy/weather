@@ -25,6 +25,7 @@ export class HomePage {
 
   }
   
+  street
   city
   lat
   long
@@ -55,7 +56,18 @@ export class HomePage {
         this.googleStreetView = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+this.lat+","+this.long+"&heading=151.78&pitch=-0.76&key=AIzaSyDi3oi6kwooMB9aIGUE6Bw1U7gN2HEbgLk"
         console.log(this.lat)
         console.log(this.googleStreetView)
-      })
+
+        this.nativeGeocoder.reverseGeocode(this.lat, this.long)
+          .then((result: NativeGeocoderReverseResult) => {
+          console.log(JSON.stringify(result)),
+          this.street = result.thoroughfare;
+         })
+        .catch((error: any) => console.log(error));
+
+        this.nativeGeocoder.forwardGeocode('Berlin')
+          .then((coordinates: NativeGeocoderForwardResult) => console.log('The coordinates are latitude=' + coordinates.latitude + ' and longitude=' + coordinates.longitude))
+          .catch((error: any) => console.log(error));
+          })
       
       
 
