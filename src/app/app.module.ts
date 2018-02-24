@@ -7,9 +7,20 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { WeatherPage } from '../pages/weather/weather';
+import { WeatherDetailsPage } from '../pages/weather-details/weather-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpsProvider } from '../providers/https/https';
+import { HttpClientModule } from '@angular/common/http';
+
+
+import { Geolocation } from '@ionic-native/geolocation';
+import { LocationProvider } from '../providers/location/location';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+
+
 
 @NgModule({
   declarations: [
@@ -17,11 +28,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WeatherPage,
+    WeatherDetailsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +43,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WeatherPage,
+    WeatherDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpsProvider,
+    Geolocation,
+    LocationProvider,
+    NativeGeocoder
+    
   ]
 })
 export class AppModule {}
