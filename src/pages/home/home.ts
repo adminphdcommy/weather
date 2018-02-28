@@ -53,7 +53,7 @@ export class HomePage {
         this.lat = position[0]
         this.long = position[1]
 
-        this.googleStreetView = "https://maps.googleapis.com/maps/api/streetview?size=600x300&location="+this.lat+","+this.long+"&heading=151.78&pitch=5&key=AIzaSyDi3oi6kwooMB9aIGUE6Bw1U7gN2HEbgLk"
+        this.googleStreetView = "https://maps.googleapis.com/maps/api/streetview?fov=120&size=600x300&location="+this.lat+","+this.long+"&heading=0&pitch=10&key=AIzaSyDi3oi6kwooMB9aIGUE6Bw1U7gN2HEbgLk"
         console.log(this.lat)
         console.log(this.googleStreetView)
 
